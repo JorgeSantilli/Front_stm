@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 //REACT BOOTSTRAP
 
 import Button from 'react-bootstrap/Button';
@@ -9,10 +9,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 //IMAGES
 import logo from '../assets/images/Logo_stm.png';
+
+//import { link } from 'react-router-dom';
+
 /* import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl"; */
 
 import LoginModal from './LoginModal';
+import route from 'color-convert/route';
 
 export default function NavigationBar(props) {
 	const [showLoginModal, setShowLoginModal] = useState(false);
@@ -71,24 +75,36 @@ export default function NavigationBar(props) {
 	return (
 		<BrowserRouter>
 			<Navbar style={navbarStyle} expand='lg'>
-				<Navbar.Brand href='#home'>
-					<img src={logo}></img>
-				</Navbar.Brand>
+				<Link to='/'>
+					<Navbar.Brand href='#home'>
+						<img src={logo}></img>
+					</Navbar.Brand>
+				</Link>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse id='basic-navbar-nav'>
 					{props.user ? (
 						<BrowserRouter>
 							<Nav className='mr-auto'>
 								<Nav.Link href='#home'>Home</Nav.Link>
+								<Link to='/Reservas' className='nav-link'>
+									Reservas
+								</Link>
 								<Nav.Link href='#link'>Reservas</Nav.Link>
-
-								<NavDropdown title='Dropdown' id='basic-nav-dropdown'>
-									<NavDropdown.Item href='#action/3.1'>Action</NavDropdown.Item>
-									<NavDropdown.Item href='#action/3.2'>
-										Another action
+								<NavDropdown title='Reservas' id='basic-nav-dropdown'>
+									<NavDropdown.Item>
+										<Link to='/Reservas' className='nav-link'>
+											Reservas
+										</Link>
 									</NavDropdown.Item>
-									<NavDropdown.Item href='#action/3.3'>
-										Something
+									<NavDropdown.Item>
+										<Link to='/Pasajeros' className='nav-link'>
+											Pasajeros
+										</Link>
+									</NavDropdown.Item>
+									<NavDropdown.Item>
+										<Link to='/Actividades' className='nav-link'>
+											Actividades
+										</Link>
 									</NavDropdown.Item>
 									<NavDropdown.Divider />
 									<NavDropdown.Item href='#action/3.4'>
