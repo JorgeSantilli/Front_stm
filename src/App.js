@@ -6,7 +6,7 @@ import Footer from './Components/Footer';
 import NotFound from './Components/NotFound';
 import Reservas from './Components/Reservas';
 import Pasajeros from './Components/Pasajeros';
-import Actividades from './Components/Actividades';
+import Servicios from './Components/Servicios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -43,8 +43,8 @@ export default function App() {
 					<Pasajeros />
 				</Route>
 
-				<Route exact path='/Actividades'>
-					<Actividades />
+				<Route exact path='/Servicios'>
+					<Servicios />
 				</Route>
 
 				<Route exact path='/header'>

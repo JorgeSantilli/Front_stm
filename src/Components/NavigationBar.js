@@ -86,6 +86,9 @@ export default function NavigationBar(props) {
 						<BrowserRouter>
 							<Nav className='mr-auto'>
 								<Nav.Link href='#home'>Home</Nav.Link>
+								<Link to='/Servicios' className='nav-link'>
+									Servicios
+								</Link>
 								<Link to='/Reservas' className='nav-link'>
 									Reservas
 								</Link>
@@ -102,8 +105,8 @@ export default function NavigationBar(props) {
 										</Link>
 									</NavDropdown.Item>
 									<NavDropdown.Item>
-										<Link to='/Actividades' className='nav-link'>
-											Actividades
+										<Link to='/Servicios' className='nav-link'>
+											Servicios
 										</Link>
 									</NavDropdown.Item>
 									<NavDropdown.Divider />

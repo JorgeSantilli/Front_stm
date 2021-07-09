@@ -1,0 +1,54 @@
+import React, { useEffect, useState } from 'react';
+import Servicio from './Servicio';
+import { Table } from 'react-bootstrap';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+export default function Servicios() {
+	const [servicios, setServicios] = useState([]);
+	useEffect(getServ, []);
+
+	async function getServ() {
+		const url = 'http://localhost:8000/servicios';
+		const response = await fetch(url);
+		const data = await response.json();
+		setServicios(data);
+	}
+
+	function getServicios() {
+		const tabla = servicios.map((servicio) => {
+			return (
+				<tbody>
+					<tr>
+						<Servicio
+							ID_servicios={servicio.ID_servicios}
+							nombreServicio={servicio.nombreServicio}
+							detalleServicio={servicio.detalleServicio}
+							CostoPorPersonaServicio={servicio.CostoPorPersonaServicio}
+						/>
+					</tr>
+				</tbody>
+			);
+		});
+		return tabla;
+	}
+
+	return (
+		<BrowserRouter>
+			<Row responsive='sm'>
+				<Table>
+					<thead>
+						<tr className='table-active'>
+							<th>#</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Username</th>
+						</tr>
+					</thead>
+				</Table>
+				<Table className='table-hover'>{getServicios()}</Table>
+			</Row>
+		</BrowserRouter>
+	);
+}
