@@ -3,10 +3,11 @@ import React, { useState, useEffect } from 'react';
 import NavigationBar from './Components/NavigationBar';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import NotFound from './Components/NotFound';
+// import NotFound from './Components/NotFound';
 import Reservas from './Components/Reservas';
 import Pasajeros from './Components/Pasajeros';
 import Servicios from './Components/Servicios';
+import ServicioDetalle from './Components/ServicioDetalle';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -45,6 +46,9 @@ export default function App() {
 
 				<Route exact path='/Servicios'>
 					<Servicios />
+				</Route>
+				<Route path='/Servicio/:id'>
+					<ServicioDetalle />
 				</Route>
 
 				<Route exact path='/header'>

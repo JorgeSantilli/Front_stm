@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 //REACT BOOTSTRAP
 
 import Button from 'react-bootstrap/Button';
@@ -16,7 +16,7 @@ import logo from '../assets/images/Logo_stm.png';
 import FormControl from "react-bootstrap/FormControl"; */
 
 import LoginModal from './LoginModal';
-import route from 'color-convert/route';
+//import route from 'color-convert/route';
 
 export default function NavigationBar(props) {
 	const [showLoginModal, setShowLoginModal] = useState(false);
@@ -88,6 +88,9 @@ export default function NavigationBar(props) {
 								<Nav.Link href='#home'>Home</Nav.Link>
 								<Link to='/Servicios' className='nav-link'>
 									Servicios
+								</Link>
+								<Link to='/Servicio' className='nav-link'>
+									Servicio
 								</Link>
 								<Link to='/Reservas' className='nav-link'>
 									Reservas

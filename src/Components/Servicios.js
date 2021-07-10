@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Servicio from './Servicio';
 import { Table } from 'react-bootstrap';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -36,19 +36,24 @@ export default function Servicios() {
 
 	return (
 		<BrowserRouter>
-			<Row responsive='sm'>
-				<Table>
-					<thead>
-						<tr className='table-active'>
-							<th>#</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Username</th>
-						</tr>
-					</thead>
-				</Table>
-				<Table className='table-hover'>{getServicios()}</Table>
-			</Row>
+			<Row></Row>
+			<Col md={2}></Col>
+			<Col>
+				<Row responsive='sm' className='d-flex justify-content-center'>
+					<Table>
+						<thead>
+							<tr className='table-active'>
+								<th>#</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Username</th>
+							</tr>
+						</thead>
+					</Table>
+					<Table className='table-hover'>{getServicios()}</Table>
+				</Row>
+			</Col>
+			<Col md={2}></Col>
 		</BrowserRouter>
 	);
 }
