@@ -8,6 +8,7 @@ import Reservas from './Components/Reservas';
 import Pasajeros from './Components/Pasajeros';
 import Servicios from './Components/Servicios';
 import ServicioDetalle from './Components/ServicioDetalle';
+import EditarServicio from './Components/EditarServicio';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -45,8 +46,17 @@ export default function App() {
 				</Route>
 
 				<Route exact path='/Servicios'>
-					<Servicios />
+					<Servicios type='Servicios' />
 				</Route>
+
+				<Route exact path='/DetalleServicio'>
+					<Servicios type='detallesServicio' />
+				</Route>
+
+				<Route exact path='/EditarServicio'>
+					<EditarServicio type='EditarServicio' />
+				</Route>
+
 				<Route path='/Servicio/:id'>
 					<ServicioDetalle />
 				</Route>

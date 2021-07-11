@@ -89,8 +89,14 @@ export default function NavigationBar(props) {
 								<Link to='/Servicios' className='nav-link'>
 									Servicios
 								</Link>
+								<Link to='/DetalleServicio' className='nav-link'>
+									Detalle de Servicio
+								</Link>
 								<Link to='/Servicio' className='nav-link'>
 									Servicio
+								</Link>
+								<Link to='/EditarServicio' className='nav-link'>
+									Editar Servicio
 								</Link>
 								<Link to='/Reservas' className='nav-link'>
 									Reservas
