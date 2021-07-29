@@ -9,7 +9,9 @@ export default function ServicioDetalle() {
 
 	const [servicios, detalleDeServicio] = useState(null);
 
-	useEffect(cargaDetalleServicio, []);
+	useEffect(() => {
+		cargaDetalleServicio();
+	}, []);
 
 	async function cargaDetalleServicio() {
 		const url = 'http://localhost:8000/servicios/' + id;
@@ -26,10 +28,10 @@ export default function ServicioDetalle() {
 					<BrowserRouter>
 						<Col></Col>
 						<Col>
-							<h4>HOLA {servicios.ID_servicios}</h4>
-							<h3> {servicios.nombreServicio}</h3>
-							<h4> {servicios.detalleServicio}</h4>
-							<h4> {servicios.CostoPorPersonaServicio}</h4>
+							{/* <h4>HOLA {servicios.ID_servicios}</h4> */}
+							<h3> sad {servicios.nombreServicio}</h3>
+							<h4> asd {servicios.detalleServicio}</h4>
+							<h4> asd {servicios.CostoPorPersonaServicio}</h4>
 						</Col>
 						<Col></Col>
 					</BrowserRouter>

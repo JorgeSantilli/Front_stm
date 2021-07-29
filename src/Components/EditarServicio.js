@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 export default function EditarServicio() {

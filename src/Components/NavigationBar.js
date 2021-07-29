@@ -74,102 +74,143 @@ export default function NavigationBar(props) {
 
 	return (
 		<BrowserRouter>
-			<Navbar style={navbarStyle} expand='lg'>
-				<Link to='/'>
-					<Navbar.Brand href='#home'>
-						<img src={logo}></img>
-					</Navbar.Brand>
-				</Link>
-				<Navbar.Toggle aria-controls='basic-navbar-nav' />
-				<Navbar.Collapse id='basic-navbar-nav'>
-					{props.user ? (
-						<BrowserRouter>
-							<Nav className='mr-auto'>
-								<Nav.Link href='#home'>Home</Nav.Link>
-								<Link to='/Servicios' className='nav-link'>
-									Servicios
-								</Link>
-								<Link to='/DetalleServicio' className='nav-link'>
-									Detalle de Servicio
-								</Link>
-								<Link to='/Servicio' className='nav-link'>
-									Servicio
-								</Link>
-								<Link to='/EditarServicio' className='nav-link'>
-									Editar Servicio
-								</Link>
-								<Link to='/Reservas' className='nav-link'>
-									Reservas
-								</Link>
-								<Nav.Link href='#link'>Reservas</Nav.Link>
-								<NavDropdown title='Reservas' id='basic-nav-dropdown'>
-									<NavDropdown.Item>
-										<Link to='/Reservas' className='nav-link'>
-											Reservas
-										</Link>
-									</NavDropdown.Item>
-									<NavDropdown.Item>
-										<Link to='/Pasajeros' className='nav-link'>
-											Pasajeros
-										</Link>
-									</NavDropdown.Item>
-									<NavDropdown.Item>
-										<Link to='/Servicios' className='nav-link'>
-											Servicios
-										</Link>
-									</NavDropdown.Item>
-									<NavDropdown.Divider />
-									<NavDropdown.Item href='#action/3.4'>
-										Separated link
-									</NavDropdown.Item>
-								</NavDropdown>
-							</Nav>
+		<Navbar style={navbarStyle} expand='lg'>
+			<Link to='/'>
+				<Navbar.Brand href='#home'>
+					<img src={logo} alt='STM'></img>
+				</Navbar.Brand>
+			</Link>
+			<Navbar.Toggle aria-controls='basic-navbar-nav' />
+			<Navbar.Collapse id='basic-navbar-nav'>
+				{props.user ? (
+					<BrowserRouter>
+						<Nav className='mr-auto'>
+							<Nav.Link href='#home'>Home</Nav.Link>
 
-							<Nav className='ml-auto'>
-								<Nav.Link href='#home'>Home</Nav.Link>
-								<Nav.Link href='#link'>Link</Nav.Link>
+							{/* Desplegable de SERVICIOS */}
 
-								<NavDropdown
-									alignRight
-									title={props.user.name}
-									id='basic-nav-dropdown'
-								>
-									<NavDropdown.Item href='#action/3.1'>
-										Mi Cuenta
-									</NavDropdown.Item>
+							<NavDropdown title='Servicios' id='basic-nav-dropdown'>
+								<NavDropdown.Item>
+									<Link to='/Servicios' className='nav-link'>
+										Servicios
+									</Link>
+								</NavDropdown.Item>
 
-									{/* <NavDropdown.Item href="#action/3.2">
-							Another actions
-						</NavDropdown.Item>
-						<NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
+								<NavDropdown.Item>
+									<Link to='/DetalleServicio' className='nav-link'>
+										Detalle de Servicio
+									</Link>
+								</NavDropdown.Item>
 
-									<NavDropdown.Divider />
-									<NavDropdown.Item onClick={handleLogout}>
-										Cerrar seción
-									</NavDropdown.Item>
-								</NavDropdown>
-							</Nav>
-						</BrowserRouter>
-					) : (
-						<BrowserRouter>
-							<Nav className='ml-auto'>
-								<Button onClick={handleLoginClick}>Iniciar Secion</Button>
-							</Nav>
-						</BrowserRouter>
-					)}
+								<NavDropdown.Item>
+									<Link to='/Servicio' className='nav-link'>
+										Servicio
+									</Link>
+								</NavDropdown.Item>
+								<NavDropdown.Divider />
+								<NavDropdown.Item href='#action/3.4'>
+									<Link to='/EditarServicio' className='nav-link'>
+										Editar Servicio
+									</Link>
+								</NavDropdown.Item>
+							</NavDropdown>
 
-					{/* <Form inline>
-					<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-					<Button variant="outline-success">Search</Button>
-				</Form> */}
-				</Navbar.Collapse>
-			</Navbar>
+							{/* DESPLEGABLE CLIENTES */}
 
-			<LoginModal
-				show={showLoginModal}
-				handleCloseLoginModal={handleCloseLoginModal}
-				handleLogin={handleLogin}
-			/>
-		</BrowserRouter>
-	);
+							<NavDropdown title='Clientes' id='basic-nav-dropdown'>
+								<NavDropdown.Item>
+									<Link to='/Clientes' className='nav-link'>
+										Clientes
+									</Link>
+								</NavDropdown.Item>
+
+								<NavDropdown.Item>
+									<Link to='/DetalleCliente' className='nav-link'>
+										Detalle de Cliente
+									</Link>
+								</NavDropdown.Item>
+
+								<NavDropdown.Item>
+									<Link to='/Cleinte' className='nav-link'>
+										Cliente
+									</Link>
+								</NavDropdown.Item>
+								<NavDropdown.Divider />
+								<NavDropdown.Item href='#action/3.4'>
+									<Link to='/EditarCliente' className='nav-link'>
+										Editar Clietne
+									</Link>
+								</NavDropdown.Item>
+							</NavDropdown>
+
+							<NavDropdown title='Reservas' id='basic-nav-dropdown'>
+								<NavDropdown.Item>
+									<Link to='/Reservas' className='nav-link'>
+										Reservas
+									</Link>
+								</NavDropdown.Item>
+								<NavDropdown.Item>
+									<Link to='/Pasajeros' className='nav-link'>
+										Pasajeros
+									</Link>
+								</NavDropdown.Item>
+								<NavDropdown.Item>
+									<Link to='/Servicios' className='nav-link'>
+										Servicios
+									</Link>
+								</NavDropdown.Item>
+								<NavDropdown.Divider />
+								<NavDropdown.Item href='#action/3.4'>
+									Separated link
+								</NavDropdown.Item>
+							</NavDropdown>
+						</Nav>
+
+						<Nav className='ml-auto'>
+							<Nav.Link href='#home'>Home</Nav.Link>
+							<Nav.Link href='#link'>Link</Nav.Link>
+
+							<NavDropdown
+								alignRight
+								title={props.user.name}
+								id='basic-nav-dropdown'
+							>
+								<NavDropdown.Item href='#action/3.1'>
+									Mi Cuenta
+								</NavDropdown.Item>
+
+								{/* <NavDropdown.Item href="#action/3.2">
+						Another actions
+					</NavDropdown.Item>
+					<NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
+
+								<NavDropdown.Divider />
+								<NavDropdown.Item onClick={handleLogout}>
+									Cerrar seción
+								</NavDropdown.Item>
+							</NavDropdown>
+						</Nav>
+					</BrowserRouter>
+				) : (
+					<BrowserRouter>
+						<Nav className='ml-auto'>
+							<Button onClick={handleLoginClick}>Iniciar Secion</Button>
+						</Nav>
+					</BrowserRouter>
+				)}
+
+				{/* <Form inline>
+				<FormControl type="text" placeholder="Search" className="mr-sm-2" />
+				<Button variant="outline-success">Search</Button>
+			</Form> */}
+			</Navbar.Collapse>
+		</Navbar>
+
+		<LoginModal
+			show={showLoginModal}
+			handleCloseLoginModal={handleCloseLoginModal}
+			handleLogin={handleLogin}
+		/>
+	</BrowserRouter>
+);
 }
